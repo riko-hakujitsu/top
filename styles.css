@@ -1,0 +1,417 @@
+/* =========================================================
+   固定ページID 1188 専用CSS
+   理工白門祭トップページ用
+   これだけ貼ればOK
+========================================================= */
+
+/* =========================================================
+   ページ全体
+========================================================= */
+
+body.page-id-1188 {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  background: #fcf9f8 !important;
+  background-image: none !important;
+}
+
+body.page-id-1188,
+body.page-id-1188 * {
+  box-sizing: border-box;
+}
+
+body.page-id-1188 a {
+  text-decoration: none;
+}
+
+body.page-id-1188 img,
+body.page-id-1188 video,
+body.page-id-1188 iframe {
+  max-width: 100%;
+}
+
+body.page-id-1188 img {
+  height: auto;
+}
+
+/* =========================================================
+   WordPressテーマの上ヘッダーを消す
+========================================================= */
+
+body.page-id-1188 .site-header,
+body.page-id-1188 #masthead,
+body.page-id-1188 .l-header,
+body.page-id-1188 .p-header,
+body.page-id-1188 .c-header,
+body.page-id-1188 .ark-header,
+body.page-id-1188 .arkhe-header,
+body.page-id-1188 .header,
+body.page-id-1188 .global-header,
+body.page-id-1188 header.site-header,
+body.page-id-1188 header.l-header,
+body.page-id-1188 header.p-header,
+body.page-id-1188 header.c-header {
+  display: none !important;
+}
+
+/* =========================================================
+   パンくず・ページタイトルを消す
+========================================================= */
+
+body.page-id-1188 .breadcrumb,
+body.page-id-1188 .breadcrumbs,
+body.page-id-1188 .c-breadcrumb,
+body.page-id-1188 .p-breadcrumb,
+body.page-id-1188 #breadcrumb,
+body.page-id-1188 .ark-breadcrumb,
+body.page-id-1188 .arkhe-breadcrumb,
+body.page-id-1188 .breadcrumb-area,
+body.page-id-1188 .p-breadcrumbArea,
+body.page-id-1188 .c-breadcrumbArea,
+body.page-id-1188 .entry-header,
+body.page-id-1188 .page-header,
+body.page-id-1188 .post-header,
+body.page-id-1188 .l-pageHeader,
+body.page-id-1188 .p-pageHeader,
+body.page-id-1188 .c-pageHeader,
+body.page-id-1188 .l-titleArea,
+body.page-id-1188 .p-titleArea,
+body.page-id-1188 .c-titleArea,
+body.page-id-1188 .entry-title,
+body.page-id-1188 .page-title,
+body.page-id-1188 .c-pageTitle,
+body.page-id-1188 .p-pageTitle,
+body.page-id-1188 .ark-pageTitle,
+body.page-id-1188 .arkhe-pageTitle {
+  display: none !important;
+}
+
+/* =========================================================
+   テーマの下フッター・コピーライトを消す
+========================================================= */
+
+body.page-id-1188 .site-footer,
+body.page-id-1188 #colophon,
+body.page-id-1188 .l-footer,
+body.page-id-1188 .p-footer,
+body.page-id-1188 .c-footer,
+body.page-id-1188 .ark-footer,
+body.page-id-1188 .arkhe-footer,
+body.page-id-1188 .global-footer,
+body.page-id-1188 .site-info,
+body.page-id-1188 .copyright,
+body.page-id-1188 .footer-copy,
+body.page-id-1188 .footer-bottom,
+body.page-id-1188 .p-footer__copy,
+body.page-id-1188 .c-footer__copy,
+body.page-id-1188 .p-footer__bottom,
+body.page-id-1188 .c-footer__bottom {
+  display: none !important;
+}
+
+/* 自作HTML内のフッターは表示する */
+body.page-id-1188 .rikohaku-footer,
+body.page-id-1188 footer.rikohaku-footer,
+body.page-id-1188 footer#contact {
+  display: block !important;
+  background: #e5e2e1 !important;
+  background-image: none !important;
+}
+
+/* =========================================================
+   WordPressの外枠・横幅制限を解除
+========================================================= */
+
+body.page-id-1188 #page,
+body.page-id-1188 .site,
+body.page-id-1188 .l-wrapper,
+body.page-id-1188 .l-container,
+body.page-id-1188 .l-content,
+body.page-id-1188 .l-main,
+body.page-id-1188 .p-main,
+body.page-id-1188 .site-content,
+body.page-id-1188 #content,
+body.page-id-1188 main,
+body.page-id-1188 article,
+body.page-id-1188 .post,
+body.page-id-1188 .page,
+body.page-id-1188 .entry,
+body.page-id-1188 .entry-content,
+body.page-id-1188 .wp-block-post-content,
+body.page-id-1188 .wp-site-blocks,
+body.page-id-1188 .c-postContent,
+body.page-id-1188 .p-postContent,
+body.page-id-1188 .ark-postContent,
+body.page-id-1188 .arkhe-postContent {
+  max-width: none !important;
+  width: 100% !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* 上の余白を消す */
+body.page-id-1188 #content,
+body.page-id-1188 .site-content,
+body.page-id-1188 .l-content,
+body.page-id-1188 .l-main,
+body.page-id-1188 main,
+body.page-id-1188 article,
+body.page-id-1188 .entry-content,
+body.page-id-1188 .wp-block-post-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* 本文側の余白も調整 */
+body.page-id-1188 .entry-content,
+body.page-id-1188 .wp-block-post-content {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* カスタムHTMLブロックを全幅にする */
+body.page-id-1188 .wp-block-html,
+body.page-id-1188 .wp-block-custom-html {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+
+/* ブロック内の横幅制限を解除 */
+body.page-id-1188 .entry-content > *,
+body.page-id-1188 .wp-block-post-content > *,
+body.page-id-1188 .wp-site-blocks > * {
+  max-width: none !important;
+}
+
+/* WordPressテーマ側の不要なブロック余白対策 */
+body.page-id-1188 .is-layout-constrained > *,
+body.page-id-1188 .is-layout-flow > * {
+  max-width: none !important;
+}
+
+/* =========================================================
+   自作ナビゲーション
+========================================================= */
+
+/* HTML側が class="relative md:fixed ..." のため、nav.fixed ではなくこちらで指定 */
+body.page-id-1188 nav[class*="md:fixed"],
+body.page-id-1188 nav.z-50 {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 99999 !important;
+}
+
+/* ログイン中だけ管理バー分下げる */
+body.page-id-1188.admin-bar nav[class*="md:fixed"],
+body.page-id-1188.admin-bar nav.z-50 {
+  top: 32px !important;
+}
+
+@media screen and (max-width: 782px) {
+  body.page-id-1188.admin-bar nav[class*="md:fixed"],
+  body.page-id-1188.admin-bar nav.z-50 {
+    top: 46px !important;
+  }
+}
+
+/* ナビに中身が隠れないようにする */
+body.page-id-1188 header.pt-20 {
+  padding-top: 120px !important;
+}
+
+@media screen and (max-width: 767px) {
+  body.page-id-1188 header.pt-20 {
+    padding-top: 104px !important;
+  }
+}
+
+/* スマホメニュー */
+body.page-id-1188 #mobile-menu {
+  background: #fcf9f8 !important;
+  border-bottom: 1px solid #c7c5d4 !important;
+}
+
+body.page-id-1188 #mobile-menu.mobile-menu-open {
+  display: flex !important;
+}
+
+/* =========================================================
+   セクション余白
+========================================================= */
+
+body.page-id-1188 section.py-section-gap {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
+
+@media screen and (max-width: 767px) {
+  body.page-id-1188 section.py-section-gap {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
+/* 自作フッター内の余白 */
+body.page-id-1188 .rikohaku-footer .py-16,
+body.page-id-1188 footer#contact .py-16 {
+  padding-top: 64px !important;
+  padding-bottom: 64px !important;
+}
+
+@media screen and (max-width: 767px) {
+  body.page-id-1188 .rikohaku-footer .py-16,
+  body.page-id-1188 footer#contact .py-16 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+  }
+}
+
+/* =========================================================
+   背景パターン
+========================================================= */
+
+body.page-id-1188 .grid-pattern {
+  background-image:
+    linear-gradient(rgba(118, 118, 132, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(118, 118, 132, 0.15) 1px, transparent 1px) !important;
+  background-size: 24px 24px !important;
+}
+
+/* =========================================================
+   アニメーション
+========================================================= */
+
+body.page-id-1188 .fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: rikohakuFadeInUp 0.8s ease forwards;
+}
+
+@keyframes rikohakuFadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   iframe / Google Map
+========================================================= */
+
+body.page-id-1188 iframe {
+  display: block;
+  max-width: 100%;
+  border: 0;
+}
+
+/* =========================================================
+   WordPressが勝手に付ける余白対策
+========================================================= */
+
+body.page-id-1188 .wp-block-html,
+body.page-id-1188 .wp-block-custom-html,
+body.page-id-1188 .wp-block-html > *,
+body.page-id-1188 .wp-block-custom-html > * {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   小画面調整
+========================================================= */
+
+@media screen and (max-width: 767px) {
+  body.page-id-1188 {
+    font-size: 16px;
+  }
+
+  body.page-id-1188 nav span.font-headline-md {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  body.page-id-1188 h1 {
+    word-break: keep-all;
+  }
+
+  body.page-id-1188 .rikohaku-footer {
+    text-align: left;
+  }
+}
+
+/* Orbiting Icons Animation (ファーストビュー用) */
+        .orbit-container {
+            position: absolute;
+            width: 100vmin;
+            height: 100vmin;
+            max-width: 600px;
+            max-height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 60s linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .orbit-icon-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 48px;
+            height: 48px;
+            margin: -24px;
+        }
+
+        .orbit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: rgba(255, 255, 255, 0.6);
+            animation: rotate-reverse 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes rotate-reverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        /* Orbit Positioning (Math for 10 items) */
+        .orbit-icon-wrapper:nth-child(1) { transform: rotate(0deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(2) { transform: rotate(36deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(3) { transform: rotate(72deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(4) { transform: rotate(108deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(5) { transform: rotate(144deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(6) { transform: rotate(180deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(7) { transform: rotate(216deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(8) { transform: rotate(252deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(9) { transform: rotate(288deg) translate(250px); }
+        .orbit-icon-wrapper:nth-child(10) { transform: rotate(324deg) translate(250px); }
+
+        @media (max-width: 768px) {
+            .orbit-icon-wrapper:nth-child(1) { transform: rotate(0deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(2) { transform: rotate(36deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(3) { transform: rotate(72deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(4) { transform: rotate(108deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(5) { transform: rotate(144deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(6) { transform: rotate(180deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(7) { transform: rotate(216deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(8) { transform: rotate(252deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(9) { transform: rotate(288deg) translate(150px); }
+            .orbit-icon-wrapper:nth-child(10) { transform: rotate(324deg) translate(150px); }
+        }

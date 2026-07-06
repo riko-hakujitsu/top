@@ -1,0 +1,634 @@
+<!-- =========================================================
+     WordPress HTMLタブ用：理工白門祭トップページ 完成版
+     使い方：HTMLタブの中身を全部消して、このファイルの中身を全部コピペしてください。
+     注意：CSSタブ・JavaScriptタブには古いコードが残っていないか確認してください。
+========================================================= -->
+
+<!-- ここから：外部フォント読み込み -->
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+<!-- ここまで：外部フォント読み込み -->
+
+<!-- ここから：Tailwind CSS読み込み -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- ここまで：Tailwind CSS読み込み -->
+
+<!-- ここから：Tailwindの色・余白・フォント設定。基本的に触らないでOK -->
+<script id="tailwind-config">
+try {
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "on-error-container": "#93000a",
+                            "inverse-on-surface": "#f3f0ef",
+                            "secondary": "#605e5e",
+                            "primary-fixed": "#e1e0ff",
+                            "surface-container-highest": "#e5e2e1",
+                            "surface-tint": "#4e53b7",
+                            "on-primary-fixed-variant": "#353a9e",
+                            "outline": "#767684",
+                            "surface-dim": "#dcd9d9",
+                            "surface": "#fcf9f8",
+                            "on-tertiary": "#ffffff",
+                            "surface-container-low": "#f6f3f2",
+                            "on-secondary-fixed-variant": "#484646",
+                            "on-tertiary-fixed-variant": "#454747",
+                            "inverse-surface": "#313030",
+                            "error-container": "#ffdad6",
+                            "on-surface": "#1c1b1b",
+                            "tertiary-fixed-dim": "#c6c6c6",
+                            "on-primary": "#ffffff",
+                            "on-primary-container": "#8a8ff7",
+                            "on-secondary": "#ffffff",
+                            "on-background": "#1c1b1b",
+                            "background": "#fcf9f8",
+                            "on-tertiary-fixed": "#1a1c1c",
+                            "outline-variant": "#c7c5d4",
+                            "surface-bright": "#fcf9f8",
+                            "primary": "#03006f",
+                            "on-secondary-container": "#666464",
+                            "surface-container-high": "#eae7e7",
+                            "tertiary-fixed": "#e2e2e2",
+                            "surface-variant": "#e5e2e1",
+                            "primary-container": "#1d2088",
+                            "secondary-container": "#e6e1e1",
+                            "inverse-primary": "#bfc1ff",
+                            "on-surface-variant": "#464652",
+                            "on-secondary-fixed": "#1c1b1b",
+                            "surface-container": "#f0eded",
+                            "tertiary-container": "#2f3132",
+                            "primary-fixed-dim": "#bfc1ff",
+                            "surface-container-lowest": "#ffffff",
+                            "on-error": "#ffffff",
+                            "secondary-fixed": "#e6e1e1",
+                            "tertiary": "#1a1c1d",
+                            "on-primary-fixed": "#03006d",
+                            "error": "#ba1a1a",
+                            "secondary-fixed-dim": "#c9c6c5",
+                            "on-tertiary-container": "#989999"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                        },
+                        "spacing": {
+                            "base": "8px",
+                            "margin-desktop": "48px",
+                            "container-max": "1280px",
+                            "margin-mobile": "16px",
+                            "gutter": "24px",
+                            "section-gap": "80px"
+                        },
+                        "fontFamily": {
+                            "headline-lg-mobile": ["IBM Plex Sans"],
+                            "label-sm": ["IBM Plex Sans"],
+                            "headline-xl": ["IBM Plex Sans"],
+                            "label-md": ["IBM Plex Sans"],
+                            "body-lg": ["IBM Plex Sans"],
+                            "headline-md": ["IBM Plex Sans"],
+                            "headline-lg": ["IBM Plex Sans"],
+                            "body-md": ["IBM Plex Sans"]
+                        },
+                        "fontSize": {
+                            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                            "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                        }
+                    },
+                },
+            }
+        } catch (_e) {}
+</script>
+<!-- ここまで：Tailwind設定 -->
+
+<!-- =========================================================
+     ここから：上部ナビゲーション
+========================================================= -->
+<nav class="relative md:fixed md:top-0 w-full bg-surface dark:bg-background border-b border-outline-variant dark:border-outline flat no shadows z-50">
+        <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <a class="flex items-center gap-2 group" href="#">
+                <span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight group-hover:opacity-80 transition-opacity">Riko-Hakumonsai Executive Committee</span>
+            </a>
+            <div class="hidden md:flex items-center gap-gutter">
+                <a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#about">About Committee</a>
+                <a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#festivals">Annual Festivals</a>
+                <a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#join">Join Us</a>
+                <a class="font-label-md text-label-md text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-2 py-1 rounded" href="#contact">Contact</a>
+                <button class="font-label-md text-label-md bg-primary text-on-primary px-4 py-2 rounded active:opacity-80 active:scale-95 transition-transform hover:bg-primary-container">Portal Login</button>
+            </div>
+            <button class="md:hidden text-primary p-2">
+                <span class="material-symbols-outlined" data-icon="menu">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden border-b border-surface-variant pt-20">
+        <div class="absolute inset-0 z-0 bg-surface-container-lowest grid-pattern"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-transparent to-surface/90"></div>
+        <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+            <div class="md:col-span-6 flex flex-col gap-6">
+                <div class="inline-flex items-center gap-2 border border-outline px-3 py-1 rounded w-max bg-surface">
+                    <span class="w-2 h-2 bg-primary rounded-sm animate-pulse"></span>
+                    <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Official Portal</span>
+                </div>
+                <h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-background leading-tight">
+                    後楽園唯一の誇りで、<br>
+                    <span class="text-primary relative inline-block">
+                        学生生活をもっと豊かに。
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-primary/20" preserveAspectRatio="none" viewBox="0 0 100 10">
+                            <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="4"></path>
+                        </svg>
+                    </span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-secondary max-w-xl">
+                    理工白門祭実行委員会は、後楽園キャンパスにおけるイベントの仕掛け人である唯一の学生団体として、理工学部の学生生活をより豊かにしていきます。
+                </p>
+                <div class="flex flex-wrap gap-4 mt-4">
+                    <a class="inline-flex items-center justify-center gap-2 bg-primary text-on-primary px-6 py-3 rounded font-label-md text-label-md hover:bg-primary-container transition-colors" href="#festivals">
+                        View Annual Events
+                        <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+                    </a>
+                    <a class="inline-flex items-center justify-center gap-2 border border-tertiary text-tertiary px-6 py-3 rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#about">
+                        Read Mission
+                    </a>
+                </div>
+            </div>
+            <div class="md:col-span-6 relative h-[400px] md:h-[600px] w-full mt-12 md:mt-0">
+                <div class="absolute inset-0 bg-primary/10 rounded-lg transform translate-x-4 translate-y-4 border border-primary/20"></div>
+                <img alt="Hero Image" class="absolute inset-0 w-full h-full object-cover rounded-lg border border-surface-variant shadow-sm z-10 grayscale-[20%] hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsHrcKxRYgxyh_YO--4oToj1bbSPUJi9DyO9heDj0el3cjNMImmgh4o9elWa90q5fWOOI3VcAiEri1-ehQ4sO0RFAzkjKkPgMSp8EprlQVT-2lX4m9VuGhtvrU8Nf3rFXeMC3TxA9ejqmF4_54sPlYia33qjfnlnAnhX9OINkPtuT1GC4edebMo6wIVqR3MwTWLHbOmr2t02ergO0NrdQuh-0UG_pv2DI7SylBGRXicQtmebNf_hF5bA_0">
+                <div class="absolute -left-4 md:-left-12 bottom-12 bg-surface border border-surface-variant p-4 rounded-lg shadow-sm z-20 flex items-center gap-4">
+                    <div class="w-12 h-12 bg-primary/10 rounded flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined" data-icon="school">school</span>
+                    </div>
+                    <div>
+                        <div class="font-label-sm text-label-sm text-secondary">Established</div>
+                        <div class="font-headline-md text-headline-md text-on-background">1965</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <section class="py-section-gap bg-surface-container-lowest border-b border-surface-variant relative overflow-hidden" id="about">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-3xl border-l-4 border-primary pl-6 md:pl-12">
+                <span class="font-label-md text-label-md text-primary tracking-widest uppercase mb-4 block">Core Mission</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-background mb-8 leading-relaxed">
+                    The sole student organization acting as the catalyst for events at the Korakuen Campus, dedicated to enriching the student life of the Faculty of Science and Engineering.
+                </h2>
+                <p class="font-body-md text-body-md text-secondary leading-loose">
+                    我々は単なるイベント運営組織ではありません。後楽園キャンパスという特殊な環境下において、理系学生の日常に非日常のスパイスを加え、学問の枠を超えた交流と熱狂を生み出す「触媒」としての役割を担っています。緻密な計画と大胆な実行力で、伝統を継承しつつ常に革新を追求します。
+                </p>
+            </div>
+        </div>
+        <svg class="absolute right-0 bottom-0 text-surface-variant w-1/3 h-full opacity-50 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <line stroke="currentColor" stroke-width="0.5" x1="0" x2="100" y1="100" y2="0"></line>
+            <line stroke="currentColor" stroke-width="0.5" x1="20" x2="100" y1="100" y2="20"></line>
+            <line stroke="currentColor" stroke-width="0.5" x1="40" x2="100" y1="100" y2="40"></line>
+        </svg>
+    </section>
+<!-- =========================================================
+     ここまで：About Committee
+========================================================= -->
+
+<!-- =========================================================
+     ここから：Flagship Events
+========================================================= -->
+
+    <section class="py-section-gap bg-background" id="festivals">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-surface-variant pb-6">
+                <div>
+                    <span class="font-label-md text-label-md text-secondary tracking-widest uppercase block mb-2">Annual Portals</span>
+                    <h2 class="font-headline-lg text-headline-lg text-on-background">Flagship Events</h2>
+                </div>
+                <a class="font-label-md text-label-md text-primary flex items-center gap-1 hover:underline mt-4 md:mt-0" href="#">
+                    View Complete Calendar <span class="material-symbols-outlined text-[16px]" data-icon="arrow_outward">arrow_outward</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                <div class="group relative bg-surface border border-surface-variant rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
+                    <div class="h-64 bg-surface-container-high relative overflow-hidden">
+                        <div class="absolute inset-0 bg-primary/20 mix-blend-multiply z-10"></div>
+                        <img alt="Rikohaku Festival" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/AP1WRLsglW7TJ3y0heY_Ka_uU-k2idpyTsU4xLs3pH3zQRtXS9jM0gZpRAY9QZh7I7qQM32kXfmudVl_kuWtR4BF0iV8b9GnY3Y8_Cq06nn9RejYP_8vF3JIYat-0Gwrak_tO8haY-T8nsGqkpz5M90SsflKLUSTkVfyoJ2KKVMcTHQA05m-2V84oEwkTUQM283m-GEcxP_hHxjRgKmz6OtUC6IuHZES9qK1XJsHyZZly1wfQmO39B_i28jl-w">
+                        <div class="absolute top-4 right-4 z-20 bg-surface text-on-surface font-label-sm text-label-sm px-3 py-1 rounded">
+                            November
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-headline-md text-headline-md text-on-background mb-1">理工白門祭</h3>
+                                <p class="font-label-md text-label-md text-secondary">Science &amp; Engineering Festival</p>
+                            </div>
+                            <span class="material-symbols-outlined text-primary text-3xl opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all" data-icon="arrow_forward">arrow_forward</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            後楽園キャンパス最大の祭典。研究室公開、サイエンスショー、各種模擬店など、理工学部ならではの知と活気が交差する3日間。
+                        </p>
+                        <a class="inline-block border border-primary text-primary font-label-sm text-label-sm px-4 py-2 rounded hover:bg-primary/5 transition-colors" href="https://rikohaku.net/blog/top_test/rikohaku_2026_test/">
+                            Enter Special Site
+                        </a>
+                    </div>
+                </div>
+                <div class="group relative bg-surface border border-surface-variant rounded-lg overflow-hidden hover:border-primary/50 transition-colors">
+                    <div class="h-64 bg-surface-container-high relative overflow-hidden">
+                        <div class="absolute inset-0 bg-tertiary/20 mix-blend-multiply z-10"></div>
+                        <div class="w-full h-full grid-pattern opacity-50"></div>
+                        <div class="absolute top-4 right-4 z-20 bg-surface text-on-surface font-label-sm text-label-sm px-3 py-1 rounded">
+                            April
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="font-headline-md text-headline-md text-on-background mb-1">新歓文化祭</h3>
+                                <p class="font-label-md text-label-md text-secondary">Welcome Festival</p>
+                            </div>
+                            <span class="material-symbols-outlined text-tertiary text-3xl opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all" data-icon="arrow_forward">arrow_forward</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            新入生を歓迎する春の祭典。サークル紹介やキャンパスツアーなど、大学生活の第一歩をサポートする熱気あふれるイベント。
+                        </p>
+                        <a class="inline-block border border-tertiary text-tertiary font-label-sm text-label-sm px-4 py-2 rounded hover:bg-tertiary/5 transition-colors" href="https://rikohaku.net/blog/top_test/sinkan_2026_test/">
+                            Enter Special Site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- =========================================================
+     ここまで：Flagship Events
+========================================================= -->
+
+<!-- =========================================================
+     ここから：Committee Divisions
+========================================================= -->
+
+    <section class="py-section-gap bg-surface-container-lowest border-y border-surface-variant relative">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="mb-12">
+                <h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Committee Divisions</h2>
+                <p class="font-body-md text-body-md text-secondary max-w-2xl">
+                    実行委員会は複数の局に分かれ、専門的なタスクを遂行します。企画の立案から当日の運営まで、組織的なアプローチで祭典を創り上げます。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="fade-in-up flex flex-col h-full border border-surface-variant rounded-lg overflow-hidden" style="transition-delay: 0.1s;">
+                    <div class="h-48 relative bg-surface-container-high grid-pattern flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="lightbulb">lightbulb</span>
+                        <div class="absolute top-0 left-0 bg-surface/90 backdrop-blur px-3 py-1 border-r border-b border-surface-variant font-label-sm text-label-sm text-primary">
+                            Planning Support
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface flex-1">
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-background">企画支援部</h4>
+                        <p class="font-body-md text-body-md text-secondary">
+                            祭典の核となる企画の立案・進行。独自性と実現可能性を両立させるアイデアを生み出します。
+                        </p>
+                    </div>
+                </div>
+                <div class="fade-in-up flex flex-col h-full border border-surface-variant rounded-lg overflow-hidden" style="transition-delay: 0.2s;">
+                    <div class="h-48 bg-surface-container-high relative flex items-center justify-center grid-pattern">
+                        <span class="material-symbols-outlined text-4xl text-secondary" data-icon="engineering">engineering</span>
+                        <div class="absolute top-0 left-0 bg-surface/90 backdrop-blur px-3 py-1 border-r border-b border-surface-variant font-label-sm text-label-sm text-primary">
+                            General Affairs
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface flex-1">
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-background">総務部</h4>
+                        <p class="font-body-md text-body-md text-secondary">
+                            会場設営、警備、人員配置など、安全かつ円滑なイベント進行を支える屋台骨。
+                        </p>
+                    </div>
+                </div>
+                <div class="fade-in-up flex flex-col h-full border border-surface-variant rounded-lg overflow-hidden" style="transition-delay: 0.3s;">
+                    <div class="h-48 bg-surface-container-high relative flex items-center justify-center grid-pattern">
+                        <span class="material-symbols-outlined text-4xl text-primary" data-icon="campaign">campaign</span>
+                        <div class="absolute top-0 left-0 bg-surface/90 backdrop-blur px-3 py-1 border-r border-b border-surface-variant font-label-sm text-label-sm text-primary">
+                            Public Relations
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface flex-1">
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-background">広報部</h4>
+                        <p class="font-body-md text-body-md text-secondary">
+                            SNS、Webサイト、外部メディアを通じた情報発信。祭典の魅力を学内外へ届けます。
+                        </p>
+                    </div>
+                </div>
+                <div class="fade-in-up flex flex-col h-full border border-surface-variant rounded-lg overflow-hidden" style="transition-delay: 0.4s;">
+                    <div class="h-48 bg-surface-container-high relative flex items-center justify-center grid-pattern">
+                        <span class="material-symbols-outlined text-4xl text-tertiary" data-icon="format_paint">format_paint</span>
+                        <div class="absolute top-0 left-0 bg-surface/90 backdrop-blur px-3 py-1 border-r border-b border-surface-variant font-label-sm text-label-sm text-primary">
+                            Decoration
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface flex-1">
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-background">装飾部</h4>
+                        <p class="font-body-md text-body-md text-secondary">
+                            キャンパスの装飾、看板制作、会場デザイン。視覚的なブランド体験を設計・構築します。
+                        </p>
+                    </div>
+                </div>
+                <div class="fade-in-up flex flex-col h-full border border-surface-variant rounded-lg overflow-hidden" style="transition-delay: 0.5s;">
+                    <div class="h-48 bg-surface-container-high relative flex items-center justify-center grid-pattern">
+                        <span class="material-symbols-outlined text-4xl text-secondary" data-icon="auto_stories">auto_stories</span>
+                        <div class="absolute top-0 left-0 bg-surface/90 backdrop-blur px-3 py-1 border-r border-b border-surface-variant font-label-sm text-label-sm text-primary">
+                            Editorial
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface flex-1">
+                        <h4 class="font-headline-md text-headline-md mb-2 text-on-background">編集部</h4>
+                        <p class="font-body-md text-body-md text-secondary">
+                            パンフレットや公式刊行物の制作。祭典の記録と記憶を形に残します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- =========================================================
+     ここまで：Committee Divisions
+========================================================= -->
+
+<!-- =========================================================
+     ここから：お知らせ・過去アーカイブ
+========================================================= -->
+
+    <section class="py-section-gap bg-background">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <div class="flex items-center justify-between mb-6 border-b-2 border-primary pb-2">
+                    <h3 class="font-headline-md text-headline-md text-on-background">Official Announcements</h3>
+                    <a class="font-label-sm text-label-sm text-secondary hover:text-primary" href="#">View All</a>
+                </div>
+                <ul class="flex flex-col">
+                    <li class="py-4 border-b border-surface-variant hover:bg-surface-container-lowest transition-colors px-2 -mx-2">
+                        <a class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6" href="#">
+                            <span class="font-label-sm text-label-sm text-secondary w-24">2023.10.15</span>
+                            <span class="font-label-md text-label-md bg-surface-container-high px-2 py-0.5 rounded text-xs w-max">Notice</span>
+                            <span class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">第59回理工白門祭 特設サイトを公開しました</span>
+                        </a>
+                    </li>
+                    <li class="py-4 border-b border-surface-variant hover:bg-surface-container-lowest transition-colors px-2 -mx-2">
+                        <a class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6" href="#">
+                            <span class="font-label-sm text-label-sm text-secondary w-24">2023.09.01</span>
+                            <span class="font-label-md text-label-md bg-primary/10 text-primary px-2 py-0.5 rounded text-xs w-max">Recruit</span>
+                            <span class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">秋期新入委員の募集を開始しました</span>
+                        </a>
+                    </li>
+                    <li class="py-4 border-b border-surface-variant hover:bg-surface-container-lowest transition-colors px-2 -mx-2">
+                        <a class="flex flex-col md:flex-row md:items-center gap-2 md:gap-6" href="#">
+                            <span class="font-label-sm text-label-sm text-secondary w-24">2023.05.10</span>
+                            <span class="font-label-md text-label-md bg-surface-container-high px-2 py-0.5 rounded text-xs w-max">Report</span>
+                            <span class="font-body-md text-body-md text-on-background hover:text-primary transition-colors">新歓文化祭2023の開催報告</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="flex items-center justify-between mb-6 border-b-2 border-tertiary pb-2">
+                    <h3 class="font-headline-md text-headline-md text-on-background">Past Archives</h3>
+                    <span class="material-symbols-outlined text-tertiary" data-icon="history">history</span>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-tertiary transition-colors flex items-center justify-between" href="#">
+                        <div>
+                            <div class="font-label-sm text-label-sm text-secondary mb-1">Vol. 58</div>
+                            <div class="font-label-md text-label-md text-on-background group-hover:text-tertiary">2022 Archive</div>
+                        </div>
+                        <span class="material-symbols-outlined text-surface-variant group-hover:text-tertiary" data-icon="open_in_new">open_in_new</span>
+                    </a>
+                    <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-tertiary transition-colors flex items-center justify-between" href="#">
+                        <div>
+                            <div class="font-label-sm text-label-sm text-secondary mb-1">Vol. 57</div>
+                            <div class="font-label-md text-label-md text-on-background group-hover:text-tertiary">2021 Archive</div>
+                        </div>
+                        <span class="material-symbols-outlined text-surface-variant group-hover:text-tertiary" data-icon="open_in_new">open_in_new</span>
+                    </a>
+                    <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-tertiary transition-colors flex items-center justify-between" href="#">
+                        <div>
+                            <div class="font-label-sm text-label-sm text-secondary mb-1">Vol. 56</div>
+                            <div class="font-label-md text-label-md text-on-background group-hover:text-tertiary">2020 Archive</div>
+                        </div>
+                        <span class="material-symbols-outlined text-surface-variant group-hover:text-tertiary" data-icon="open_in_new">open_in_new</span>
+                    </a>
+                    <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-tertiary transition-colors flex items-center justify-between" href="#">
+                        <div>
+                            <div class="font-label-sm text-label-sm text-secondary mb-1">All</div>
+                            <div class="font-label-md text-label-md text-on-background group-hover:text-tertiary">Legacy Index</div>
+                        </div>
+                        <span class="material-symbols-outlined text-surface-variant group-hover:text-tertiary" data-icon="folder_open">folder_open</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+     ここから：大学祭相互リンク
+     変更したい場合は、それぞれの href="URL" のURLだけ変えればOKです。
+========================================================= -->
+<section class="py-section-gap bg-surface-container-low border-t border-surface-variant">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex items-center justify-between mb-6 border-b-2 border-primary pb-2">
+            <h3 class="font-headline-md text-headline-md text-on-background">大学祭相互リンク (University Festival Mutual Links)</h3>
+            <span class="material-symbols-outlined text-primary" data-icon="link">link</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- 多摩キャンパス -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://hakumonsai.com/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">中央大学 多摩キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">第59回白門祭(多摩)</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+
+            <!-- 茗荷谷キャンパス -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://www.hakumon-myougadani.com/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">中央大学 茗荷谷キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">第59回白門祭(茗荷谷)</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+
+            <!-- 市ヶ谷田町キャンパス -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://itlfest.com/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">中央大学 市ヶ谷田町キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">iTLFest.2025</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+
+            <!-- 理工展 -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://circle.rikoten.com/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">早稲田大学 西早稲田キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">理工展</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+
+            <!-- 野田地区理大祭 -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://nodaridaisai.com/2026/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">東京理科大学 野田キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">野田地区理大祭</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+
+            <!-- 神楽坂地区理大祭 -->
+            <a class="group border border-surface-variant p-4 rounded bg-surface hover:border-primary transition-colors flex items-center justify-between" href="https://kagu.ridaisai.com/" target="_blank" rel="noopener noreferrer">
+                <div>
+                    <div class="font-label-sm text-label-sm text-secondary mb-1">東京理科大学 神楽坂キャンパス</div>
+                    <div class="font-label-md text-label-md text-on-background group-hover:text-primary">神楽坂地区理大祭</div>
+                </div>
+                <span class="material-symbols-outlined text-surface-variant group-hover:text-primary text-[20px]" data-icon="open_in_new">open_in_new</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     ここまで：大学祭相互リンク
+========================================================= -->
+
+    <!-- =========================================================
+     ここから：アクセス・Googleマップ
+     住所を変更したい場合は、左側の住所テキストとiframeのsrcを変更します。
+========================================================= -->
+<section class="py-section-gap bg-surface-container-lowest border-t border-surface-variant relative overflow-hidden" id="access">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <div class="md:col-span-5 flex flex-col gap-6">
+                <div>
+                    <span class="font-label-md text-label-md text-primary tracking-widest uppercase mb-2 block">Access</span>
+                    <h2 class="font-headline-lg text-headline-lg text-on-background mb-2">アクセス</h2>
+                    <p class="font-body-lg text-body-lg text-secondary">中央大学 後楽園キャンパス</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-start gap-3">
+                        <span class="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            〒112-8551<br>
+                            東京都文京区春日1-13-27
+                        </p>
+                    </div>
+
+                    <div class="border-t border-outline-variant pt-4">
+                        <h4 class="font-label-md text-label-md text-on-surface mb-3 font-bold">最寄り駅からのアクセス</h4>
+                        <ul class="flex flex-col gap-3">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                                <span class="font-body-md text-body-md text-secondary">『後楽園駅』から徒歩約5分</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                                <span class="font-body-md text-body-md text-secondary">『春日駅』から徒歩約6分</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                                <span class="font-body-md text-body-md text-secondary">『水道橋駅』から徒歩約12分</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2 h-2 bg-primary rounded-full"></span>
+                                <span class="font-body-md text-body-md text-secondary">『飯田橋駅』から徒歩約17分</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Googleマップを別タブで開くボタン -->
+                <a class="inline-flex items-center justify-center gap-2 border border-primary text-primary px-6 py-3 rounded font-label-md text-label-md hover:bg-primary/5 transition-colors w-max" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%AD%E5%A4%AE%E5%A4%A7%E5%AD%A6%20%E5%BE%8C%E6%A5%BD%E5%9C%92%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9" target="_blank" rel="noopener noreferrer">
+                    Google Mapsで見る
+                    <span class="material-symbols-outlined text-[18px]" data-icon="open_in_new">open_in_new</span>
+                </a>
+            </div>
+
+            <!-- 右側：Googleマップ埋め込み -->
+            <div class="md:col-span-7 relative h-[300px] md:h-full min-h-[400px] bg-surface-container-high rounded-lg overflow-hidden border border-surface-variant">
+                <iframe title="中央大学 後楽園キャンパス Google Map" class="absolute inset-0 w-full h-full border-0" src="https://www.google.com/maps?q=%E4%B8%AD%E5%A4%AE%E5%A4%A7%E5%AD%A6%20%E5%BE%8C%E6%A5%BD%E5%9C%92%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%91%E3%82%B9%20%E6%9D%B1%E4%BA%AC%E9%83%BD%E6%96%87%E4%BA%AC%E5%8C%BA%E6%98%A5%E6%97%A51-13-27&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen="">
+                </iframe>
+
+                <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 border border-surface-variant font-label-sm text-label-sm text-primary z-10">
+                    Chuo University Korakuen Campus
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- =========================================================
+     ここまで：アクセス・Googleマップ
+========================================================= -->
+
+    <!-- =========================================================
+     ここから：フッター
+========================================================= -->
+<footer class="rikohaku-footer w-full mt-auto bg-surface-container-highest dark:bg-tertiary-container border-t border-outline-variant dark:border-outline flat no shadows">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="col-span-1 flex flex-col gap-4">
+                <span class="font-headline-md text-headline-md font-semibold text-primary dark:text-primary-fixed-dim">Riko-Hakumonsai Executive Committee</span>
+                <p class="font-label-sm text-label-sm text-secondary dark:text-on-tertiary-container opacity-80">
+                    1-13-27 Kasuga, Bunkyo-ku,<br>
+                    Tokyo 112-8551, Japan<br>
+                    Korakuen Campus
+                </p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-label-md text-label-md text-on-surface dark:text-on-tertiary-container mb-2 font-bold">Legal</span>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all" href="#">Institutional Guidelines</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all" href="#">Privacy Policy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all" href="#">Terms of Service</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all" href="#">Accessibility</a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-label-md text-label-md text-on-surface dark:text-on-tertiary-container mb-2 font-bold">University</span>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-1" href="https://www.chuo-u.ac.jp/">University Home <span class="material-symbols-outlined text-[14px]" data-icon="open_in_new">open_in_new</span></a>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="font-label-md text-label-md text-on-surface dark:text-on-tertiary-container mb-2 font-bold">Social</span>
+                <div class="flex flex-col gap-2">
+                    <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-2" href="https://x.com/hakumonkey" target="_blank"><span class="material-symbols-outlined text-primary text-[18px]">close</span>X (Twitter)</a>
+                    <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-2" href="https://www.instagram.com/rikohaku_chuo/" target="_blank"><span class="material-symbols-outlined text-primary text-[18px]">photo_camera</span>Instagram</a>
+                    <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-2" href="#"><span class="material-symbols-outlined text-primary text-[18px]">play_circle</span>YouTube</a>
+                    <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-2" href="https://www.facebook.com/Hakumonkey0321" target="_blank"><span class="material-symbols-outlined text-primary text-[18px]">facebook</span>Facebook</a>
+                    <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container opacity-80 hover:text-primary dark:hover:text-primary-fixed hover:underline decoration-2 underline-offset-4 transition-all flex items-center gap-2" href="https://www.tiktok.com/@user5958847629538" target="_blank"><span class="material-symbols-outlined text-primary text-[18px]">video_library</span>TikTok</a>
+                </div>
+            </div>
+            <!-- ここから：フッター内コピーライト -->
+            <div class="col-span-1 md:col-span-4 mt-8 pt-6 border-t border-outline-variant dark:border-outline text-center">
+                <p class="font-label-sm text-label-sm text-secondary dark:text-on-tertiary-container opacity-80 tracking-widest">
+                    Copyright © 2026 - 中央大学 理工白門祭実行委員会 All Right Reserved.
+                </p>
+            </div>
+            <!-- ここまで：フッター内コピーライト -->
+        </div>
+    </footer>
+<!-- =========================================================
+     ここまで：フッター
+========================================================= -->
