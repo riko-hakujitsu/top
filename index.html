@@ -10,107 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#03006f",
-                        "primary-container": "#1d2088",
-                        "on-primary": "#ffffff",
-                        "background": "#fcf9f8",
-                        "on-background": "#1c1b1b",
-                        "surface": "#fcf9f8",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-low": "#f6f3f2",
-                        "surface-container": "#f0eded",
-                        "surface-container-high": "#eae7e7",
-                        "surface-container-highest": "#e5e2e1",
-                        "surface-variant": "#e5e2e1",
-                        "outline": "#767684",
-                        "outline-variant": "#c7c5d4",
-                        "secondary": "#605e5e",
-                        "tertiary": "#1a1c1d",
-                        "on-surface": "#1c1b1b",
-                        "on-surface-variant": "#464652"
-                    },
-                    borderRadius: {
-                        DEFAULT: "0.125rem",
-                        lg: "0.25rem",
-                        xl: "0.5rem",
-                        full: "0.75rem"
-                    },
-                    spacing: {
-                        "margin-desktop": "48px",
-                        "container-max": "1280px",
-                        "margin-mobile": "16px",
-                        "gutter": "24px",
-                        "section-gap": "80px"
-                    },
-                    fontFamily: {
-                        "headline-lg-mobile": ["IBM Plex Sans"],
-                        "headline-xl": ["IBM Plex Sans"],
-                        "headline-lg": ["IBM Plex Sans"],
-                        "headline-md": ["IBM Plex Sans"],
-                        "body-lg": ["IBM Plex Sans"],
-                        "body-md": ["IBM Plex Sans"],
-                        "label-md": ["IBM Plex Sans"],
-                        "label-sm": ["IBM Plex Sans"]
-                    },
-                    fontSize: {
-                        "headline-lg-mobile": ["28px", { lineHeight: "36px", fontWeight: "600" }],
-                        "headline-xl": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
-                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
-                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "500" }],
-                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
-                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
-                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "500" }],
-                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }]
-                    }
-                }
-            }
-        };
-    </script>
-
-    <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px; /* ★これを取り付けることで、メニューにジャンプした時も綺麗に収まります */
-        }
-
-        body {
-            margin: 0;
-            font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: #fcf9f8;
-            color: #1c1b1b;
-        }
-
-        .grid-pattern {
-            background-image:
-                linear-gradient(rgba(3, 0, 111, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(3, 0, 111, 0.06) 1px, transparent 1px);
-            background-size: 32px 32px;
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(18px);
-            animation: fadeInUp 0.7s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .mobile-menu-open {
-            display: flex !important;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 
 <body class="bg-background text-on-background">
@@ -152,57 +53,6 @@
 <header class="relative w-full h-screen bg-primary flex items-center justify-center overflow-hidden border-b border-surface-variant">
 
     <img src="images/Designer.png" class="absolute inset-0 w-full h-full object-cover opacity-70 pointer-events-none z-0" alt="">
-
-    <style>
-        /* アイコンの軌道半径 */
-        :root { --orbit-radius: 240px; } 
-        @media (max-width: 768px) { :root { --orbit-radius: 160px; } }
-
-        /* ▼▼▼ 修正箇所：margin-top: 64px; を追加してアイコンの軌道全体を下にずらしました ▼▼▼ */
-        /* スマホでは margin-top を 0 にし、PC（横幅768px以上）のときだけ 64px 下にずらします */
-        .orbit-system { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
-        @media (min-width: 768px) {
-            .orbit-system { margin-top: 64px; }
-        }
-        .orbit-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: spin-forward 60s linear infinite; }
-        
-        /* 各アイコンの基準点（拡大サイズ：80px） */
-        .orbit-item { 
-            position: absolute; top: 50%; left: 50%; 
-            width: 80px; height: 80px; margin-top: -40px; margin-left: -40px; 
-        }
-        @media (max-width: 768px) {
-            .orbit-item { width: 64px; height: 64px; margin-top: -32px; margin-left: -32px; }
-        }
-
-        .orbit-icon { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: rgba(255, 255, 255, 0.4); animation: spin-backward 60s linear infinite; }
-        .orbit-counter-tilt { width: 100%; height: 100%; }
-        
-        @keyframes spin-forward { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-        @keyframes spin-backward { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
-        
-        .orbit-item:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(2) { transform: rotate(36deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(3) { transform: rotate(72deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(4) { transform: rotate(108deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(5) { transform: rotate(144deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(6) { transform: rotate(180deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(7) { transform: rotate(216deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(8) { transform: rotate(252deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(9) { transform: rotate(288deg) translateY(calc(var(--orbit-radius) * -1)); }
-        .orbit-item:nth-child(10) { transform: rotate(324deg) translateY(calc(var(--orbit-radius) * -1)); }
-        
-        .orbit-item:nth-child(1) .orbit-counter-tilt { transform: rotate(0deg); }
-        .orbit-item:nth-child(2) .orbit-counter-tilt { transform: rotate(-36deg); }
-        .orbit-item:nth-child(3) .orbit-counter-tilt { transform: rotate(-72deg); }
-        .orbit-item:nth-child(4) .orbit-counter-tilt { transform: rotate(-108deg); }
-        .orbit-item:nth-child(5) .orbit-counter-tilt { transform: rotate(-144deg); }
-        .orbit-item:nth-child(6) .orbit-counter-tilt { transform: rotate(-180deg); }
-        .orbit-item:nth-child(7) .orbit-counter-tilt { transform: rotate(-216deg); }
-        .orbit-item:nth-child(8) .orbit-counter-tilt { transform: rotate(-252deg); }
-        .orbit-item:nth-child(9) .orbit-counter-tilt { transform: rotate(-288deg); }
-        .orbit-item:nth-child(10) .orbit-counter-tilt { transform: rotate(-324deg); }
-    </style>
 
     <div class="orbit-system">
         <div class="orbit-circle">
@@ -661,8 +511,5 @@
         </div>
     </div>
 </footer>
-
-<script src="script.js"></script>
-
 </body>
 </html>
