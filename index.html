@@ -159,7 +159,11 @@
         @media (max-width: 768px) { :root { --orbit-radius: 160px; } }
 
         /* ▼▼▼ 修正箇所：margin-top: 64px; を追加してアイコンの軌道全体を下にずらしました ▼▼▼ */
-        .orbit-system { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 52px; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+        /* スマホでは margin-top を 0 にし、PC（横幅768px以上）のときだけ 64px 下にずらします */
+        .orbit-system { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); margin-top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+        @media (min-width: 768px) {
+            .orbit-system { margin-top: 64px; }
+        }
         .orbit-circle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: spin-forward 60s linear infinite; }
         
         /* 各アイコンの基準点（拡大サイズ：80px） */
