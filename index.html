@@ -77,6 +77,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* ★これを取り付けることで、メニューにジャンプした時も綺麗に収まります */
         }
 
         body {
@@ -114,7 +115,7 @@
 
 <body class="bg-background text-on-background">
 
-<nav class="relative md:fixed md:top-0 w-full bg-surface border-b border-outline-variant z-50">
+<nav class="fixed top-0 w-full bg-surface border-b border-outline-variant z-50">
     <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <a href="#" class="flex items-center">
             <span class="font-headline-md text-headline-md font-bold text-primary tracking-tight group-hover:opacity-80 transition-opacity">
